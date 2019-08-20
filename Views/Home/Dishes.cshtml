@@ -1,0 +1,20 @@
+<a href="/">Chefs</a> <a href="/dishes">Dishes</a>
+<br>
+<table style="width:100%">
+    <thead>ALL DISHES</thead>
+    <th>Name</th>
+    <th>Chef</th>
+    <th>Tastiness</th>
+    <th>Calories</th>
+    @foreach(var dish in Model)
+    {
+        <tr>
+            <td>@dish.Name</td>
+            <td>@dish.Creator.FirstName @dish.Creator.LastName</td>
+            <td>@dish.Tastiness</td>
+            <td>@dish.Calories</td>
+        </tr>        
+    }
+</table>
+
+<button><a href="/dishes/new">Add a new Dish</a></button>

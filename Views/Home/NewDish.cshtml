@@ -1,0 +1,30 @@
+@using ChefsNDishes.Models
+@model Dish
+<h1>New Dish</h1>
+<br>
+<form action="/newdish" method="post">
+    <span asp-validation-for="Name"></span>
+    <label>Name:</label>
+    <input type="text" name="Name"> <br>
+    <span asp-validation-for="Calories"></span>
+    <label>Calories:</label>
+    <input type="number" name="Calories"> <br>
+    <span asp-validation-for="Tastiness"></span>
+    <label>Tastiness(1-5):</label>
+    <input type="number" name="Tastiness"> <br>
+    <span asp-validation-for="Description"></span>
+    <label>Description:</label>
+    <input type="text" name="Description"> <br>
+    <label>Chef:</label>
+    <select name="ChefId">
+        @{
+            int x = 1;
+            foreach(var chef in @ViewBag.chefs)
+            {
+                <option value="@x">@chef.FirstName @chef.LastName</option>
+                x++;     
+            }
+        }
+    </select>
+    <button type="submit">Create Dish</button>
+</form>
